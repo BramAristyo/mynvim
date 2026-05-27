@@ -83,6 +83,7 @@ func main() {
 		log.Fatal("Failed to marshal request payload")
 	}
 
+	// use gemini-3.5-flash for free model
 	url := "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent"
 
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonBody))
