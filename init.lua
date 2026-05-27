@@ -13,6 +13,26 @@ require("core.keymaps")
 
 require("lazy").setup({
   {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("toggleterm").setup{
+        open_mapping = [[<C-`>]],
+        direction = "float",
+        float_opts = {
+          border = "rounded",
+        },
+      }
+    end,
+  },
+
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = { "LazyGit" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     config = function()

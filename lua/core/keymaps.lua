@@ -36,4 +36,4 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 map("n", "<leader>cd", vim.diagnostic.open_float)  
 
- 
+map("n", "<leader>gg", ":LazyGit<CR>") 
