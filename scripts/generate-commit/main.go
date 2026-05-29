@@ -84,7 +84,7 @@ func main() {
 	}
 
 	// use gemini-3.5-flash for free model
-	url := "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent"
+	url := "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
 
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonBody))
 	if err != nil {

@@ -39,5 +39,21 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<leader>cd", vim.diagnostic.open_float)  
 map("n", "<leader>gg", ":LazyGit<CR>") 
 map("n", "<leader>ca", vim.lsp.buf.code_action)
+<<<<<<< HEAD
 map("n", "<C-q>", ":Bdelete<CR>")
 
+=======
+
+map("n", "gd", vim.lsp.buf.definition)
+map("n", "gr", vim.lsp.buf.references)
+map("n", "gi", vim.lsp.buf.implementation)
+map("n", "K", vim.lsp.buf.hover)
+
+map("n", "<leader>ca", vim.lsp.buf.code_action)
+map("n", "<leader>rn", vim.lsp.buf.rename)
+
+
+map("i", "<C-k>", vim.lsp.buf.signature_help)
+
+map("n", "<leader>cd", vim.diagnostic.open_float)
+>>>>>>> 14de1737a321e64e4214a580ecfe1c6a66128bda
