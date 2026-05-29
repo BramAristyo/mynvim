@@ -48,7 +48,6 @@ map("n", "K", vim.lsp.buf.hover)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 map("n", "<leader>rn", vim.lsp.buf.rename)
 
-
 map("i", "<C-k>", vim.lsp.buf.signature_help)
 
 map("n", "<leader>cd", vim.diagnostic.open_float)
