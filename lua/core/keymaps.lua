@@ -25,9 +25,6 @@ map("n", "<leader>bn", ":bnext<CR>")
 map("n", "<leader>bp", ":bprev<CR>")
 map("n", "<leader>bd", ":bdelete<CR>")
 
-map("n", "<Tab>", ":BufferLineCycleNext<CR>")
-map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
-
 map("n", "<leader>d", "yyp")
 map("v", "<leader>d", "y'>p")
 
@@ -45,9 +42,6 @@ map("n", "gr", vim.lsp.buf.references)
 map("n", "gi", vim.lsp.buf.implementation)
 map("n", "K", vim.lsp.buf.hover)
 
-map("n", "<leader>ca", vim.lsp.buf.code_action)
 map("n", "<leader>rn", vim.lsp.buf.rename)
 
 map("i", "<C-k>", vim.lsp.buf.signature_help)
-
-map("n", "<leader>cd", vim.diagnostic.open_float)
