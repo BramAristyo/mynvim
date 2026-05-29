@@ -5,7 +5,7 @@ return {
   config = function()
     require("lualine").setup{
       options = {
-        theme = "powerline",
+        theme = "seoul256",
         -- theme = "",
         section_separators = "",
         component_separators = "",
