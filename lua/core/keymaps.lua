@@ -21,10 +21,6 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<leader>sv", ":vsplit<CR>")
 map("n", "<leader>sh", ":split<CR>")
 
-map("n", "<leader>bn", ":bnext<CR>")
-map("n", "<leader>bp", ":bprev<CR>")
-map("n", "<leader>bd", ":bd!<CR>")
-
 map("n", "<leader>d", "yyp")
 map("v", "<leader>d", "y'>p")
 
@@ -49,9 +45,7 @@ map("i", "<C-o>", "<Esc>o")
 
 map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
 map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
-
-map("n", "<leader>x", "<Cmd>bd!<CR>", { desc = "Close current buffer" })
-map("n", "Q", "<Cmd>bd!<CR>", { desc = "Close current buffer" })
+map("n", "<S-q>", ":Bdelete<CR>")
 
 map("i", "<C-h>", "<Left>")
 map("i", "<C-l>", "<Right>")

@@ -24,8 +24,8 @@ opt.signcolumn = "yes"
 opt.cmdheight = 1
 opt.pumheight = 10
 
-opt.splitbelow = true         
-opt.splitright = true          
+opt.splitbelow = true
+opt.splitright = true
 
 opt.undofile = true
 opt.swapfile = false
@@ -43,13 +43,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.go", "*.py", "*.sql", "*.rs" },
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
-}) 
-
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
@@ -64,24 +57,30 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
-    vim.lsp.buf.code_action({
-      context = { only = { "source.organizeImports" } },
-      apply = true,
-      filter = function(action)
-        return action.isPreferred
-      end,
-    })
+    local params = vim.lsp.util.make_range_params()
+    params.context = { only = { "source.organizeImports" } }
+    -- buf_request_sync returns a map of client_id:result
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
+    for _, res in pairs(result or {}) do
+      for _, r in pairs(res.result or {}) do
+        if r.edit then
+          vim.lsp.util.apply_workspace_edit(r.edit, "utf-8")
+        else
+          vim.lsp.buf.execute_command(r.command)
+        end
+      end
+    end
   end,
 })
 
--- vim.g.clipboard = {
---   name = 'OSC 52',
---   copy = {
---     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
---     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
---   },
---   paste = {
---     ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
---     ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
---   },
--- }
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
