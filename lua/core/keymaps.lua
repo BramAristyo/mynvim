@@ -23,7 +23,7 @@ map("n", "<leader>sh", ":split<CR>")
 
 map("n", "<leader>bn", ":bnext<CR>")
 map("n", "<leader>bp", ":bprev<CR>")
-map("n", "<leader>bd", ":bdelete<CR>")
+map("n", "<leader>bd", ":bd!<CR>")
 
 map("n", "<leader>d", "yyp")
 map("v", "<leader>d", "y'>p")
@@ -34,7 +34,7 @@ map("n", "<leader>fb", ":Telescope buffers<CR>")
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<leader>cd", vim.diagnostic.open_float)
-map("n", "<leader>gg", ":LazyGit<CR>")
+map("n", "<leader>gg", "<Cmd>LazyGit<CR>")
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 
 map("n", "gd", vim.lsp.buf.definition)
@@ -44,4 +44,22 @@ map("n", "K", vim.lsp.buf.hover)
 
 map("n", "<leader>rn", vim.lsp.buf.rename)
 
-map("i", "<C-k>", vim.lsp.buf.signature_help)
+map("i", "<C-s>", vim.lsp.buf.signature_help)
+map("i", "<C-o>", "<Esc>o")
+
+map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
+map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
+
+map("n", "<leader>x", "<Cmd>bd!<CR>", { desc = "Close current buffer" })
+map("n", "Q", "<Cmd>bd!<CR>", { desc = "Close current buffer" })
+
+map("i", "<C-h>", "<Left>")
+map("i", "<C-l>", "<Right>")
+map("i", "<C-j>", "<Down>")
+map("i", "<C-k>", "<Up>")
+
+map("n", "<leader>th", function()
+  local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+  vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
+  print("Inlay Hints " .. (is_enabled and "OFF" or "ON"))
+end, { desc = "Toggle LSP Inlay Hints" })

@@ -1,5 +1,7 @@
 local opt = vim.opt 
 
+vim.lsp.inlay_hint.enable(true)
+
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
@@ -42,7 +44,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.go", "*.py", "*.sql" },
+  pattern = { "*.go", "*.py", "*.sql", "*.rs" },
   callback = function()
     vim.lsp.buf.format({ async = false })
   end,
@@ -65,19 +67,21 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.lsp.buf.code_action({
       context = { only = { "source.organizeImports" } },
       apply = true,
-    })
-  end,
-}) 
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
-  callback = function()
-    vim.lsp.buf.code_action({
-      context = { only = { "source.organizeImports" } },
-      apply = true,
       filter = function(action)
         return action.isPreferred
       end,
     })
   end,
 })
+
+-- vim.g.clipboard = {
+--   name = 'OSC 52',
+--   copy = {
+--     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+--     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+--   },
+--   paste = {
+--     ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+--     ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+--   },
+-- }
