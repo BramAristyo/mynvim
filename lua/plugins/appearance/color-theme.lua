@@ -7,19 +7,38 @@
 --   end,
 -- }
 
+-- return {
+--     "nickkadutskyi/jb.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     opts = {},
+--     config = function()
+--         -- require("jb").setup({transparent = true})
+--         vim.cmd("colorscheme jb")
+--     end,
+-- }
+
+
+return {
+  "EdenEast/nightfox.nvim",
+  priority = 1000,
+  config = function()
+    vim.cmd("colorscheme carbonfox")
+  end,
+}
 
 -- return {
---   "EdenEast/nightfox.nvim",
+--   "rebelot/kanagawa.nvim",
 --   priority = 1000,
 --   config = function()
---     vim.cmd("colorscheme carbonfox")
+--     vim.cmd("colorscheme kanagawa-wave")
 --   end,
 -- }
 
-return {
-  "rebelot/kanagawa.nvim",
-  priority = 1000,
-  config = function()
-    vim.cmd("colorscheme kanagawa-dragon")
-  end,
-}
+-- return {
+--   "folke/tokyonight.nvim",
+--   priority = 1000,
+--   config = function()
+--     vim.cmd("colorscheme tokyonight-night")
+--   end,
+-- }
