@@ -19,21 +19,21 @@
 -- }
 
 
-return {
-  "EdenEast/nightfox.nvim",
-  priority = 1000,
-  config = function()
-    vim.cmd("colorscheme carbonfox")
-  end,
-}
-
 -- return {
---   "rebelot/kanagawa.nvim",
+--   "EdenEast/nightfox.nvim",
 --   priority = 1000,
 --   config = function()
---     vim.cmd("colorscheme kanagawa-wave")
+--     vim.cmd("colorscheme carbonfox")
 --   end,
 -- }
+
+return {
+  "rebelot/kanagawa.nvim",
+  priority = 1000,
+  config = function()
+    vim.cmd("colorscheme kanagawa-wave")
+  end,
+}
 
 -- return {
 --   "folke/tokyonight.nvim",
