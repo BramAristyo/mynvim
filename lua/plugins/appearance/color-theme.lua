@@ -7,6 +7,22 @@
 --   end,
 -- }
 
+return {
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("everforest").setup({
+        background = "medium",
+      })
+      vim.cmd([[colorscheme everforest]])
+    end,
+  }
+}
+
+
 -- return {
 --     "nickkadutskyi/jb.nvim",
 --     lazy = false,
@@ -27,13 +43,13 @@
 --   end,
 -- }
 
-return {
-  "rebelot/kanagawa.nvim",
-  priority = 1000,
-  config = function()
-    vim.cmd("colorscheme kanagawa-wave")
-  end,
-}
+-- return {
+--   "rebelot/kanagawa.nvim",
+--   priority = 1000,
+--   config = function()
+--     vim.cmd("colorscheme kanagawa-wave")
+--   end,
+-- }
 
 -- return {
 --   "folke/tokyonight.nvim",
