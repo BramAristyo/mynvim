@@ -1,4 +1,4 @@
-local opt = vim.opt 
+local opt = vim.opt
 
 vim.lsp.inlay_hint.enable(true)
 
@@ -13,6 +13,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.smartindent = true
+opt.autoindent = true
 
 opt.ignorecase = true
 opt.smartcase = true
@@ -39,6 +40,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+
     vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
   end,
 })
@@ -52,6 +54,15 @@ vim.diagnostic.config({
     border = "rounded",
     source = true,
   },
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
+    if #clients > 0 then
+      vim.lsp.buf.hover()
+    end
+  end,
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {

@@ -57,3 +57,6 @@ map("n", "<leader>th", function()
   vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
   print("Inlay Hints " .. (is_enabled and "OFF" or "ON"))
 end, { desc = "Toggle LSP Inlay Hints" })
+
+
+map('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { desc = 'Clear search highlight' })

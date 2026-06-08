@@ -17,10 +17,22 @@ return {
       },
     }
 
+    vim.lsp.config["intelephense"] = {
+      filetypes = { "php", "blade" },
+      settings = {
+        intelephense = {
+          files = {
+            maxSize = 5000000,
+          },
+        },
+      },
+    }
+
     vim.lsp.enable("lua_ls")
     vim.lsp.enable("gopls")
     vim.lsp.enable("pyright")
     vim.lsp.enable("sqlls")
     vim.lsp.enable("rust_analyzer")
+    vim.lsp.enable("intelephense")
   end,
 }
