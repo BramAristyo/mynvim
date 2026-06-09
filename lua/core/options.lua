@@ -35,6 +35,11 @@ opt.updatetime = 250
 
 opt.clipboard = "unnamedplus"
 
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -56,14 +61,14 @@ vim.diagnostic.config({
   },
 })
 
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    local clients = vim.lsp.get_clients({ bufnr = 0 })
-    if #clients > 0 then
-      vim.lsp.buf.hover()
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--   callback = function()
+--     local clients = vim.lsp.get_clients({ bufnr = 0 })
+--     if #clients > 0 then
+--       vim.lsp.buf.hover()
+--     end
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
