@@ -27,6 +27,11 @@ map("v", "<leader>d", "y'>p")
 map("n", "<leader><leader>", ":Telescope find_files<CR>")
 map("n", "<leader>fg", ":Telescope live_grep<CR>")
 map("n", "<leader>fb", ":Telescope buffers<CR>")
+map("n", "<leader>fs", function()
+	require("telescope.builtin").lsp_document_symbols({
+		symbols = { "function", "method", "struct", "interface", "class", "constructor", "enum" },
+	})
+end)
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<leader>cd", vim.diagnostic.open_float)
@@ -53,10 +58,9 @@ map("i", "<C-j>", "<Down>")
 map("i", "<C-k>", "<Up>")
 
 map("n", "<leader>th", function()
-  local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
-  vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
-  print("Inlay Hints " .. (is_enabled and "OFF" or "ON"))
+	local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+	vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
+	print("Inlay Hints " .. (is_enabled and "OFF" or "ON"))
 end, { desc = "Toggle LSP Inlay Hints" })
 
-
-map('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { desc = 'Clear search highlight' })
+map("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", { desc = "Clear search highlight" })
