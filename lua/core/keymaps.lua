@@ -32,6 +32,7 @@ map("n", "<leader>fs", function()
 		symbols = { "function", "method", "struct", "interface", "class", "constructor", "enum" },
 	})
 end)
+map("n", "<C-/>", ":noh<CR>")
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<leader>cd", vim.diagnostic.open_float)
