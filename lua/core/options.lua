@@ -9,6 +9,8 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.wrap = false
 
+opt.mouse = "a"
+
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
@@ -41,24 +43,24 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 
-    vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-  end,
+		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+	end,
 })
 
 vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  float = {
-    border = "rounded",
-    source = true,
-  },
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	float = {
+		border = "rounded",
+		source = true,
+	},
 })
 
 -- vim.api.nvim_create_autocmd("CursorHold", {
@@ -71,19 +73,19 @@ vim.diagnostic.config({
 -- })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
+	callback = function()
+		vim.lsp.buf.format({ async = false })
+	end,
 })
 
 vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-  },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-  },
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+	},
 }

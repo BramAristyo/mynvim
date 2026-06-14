@@ -8,20 +8,19 @@
 -- }
 
 return {
-  {
-    "neanias/everforest-nvim",
-    version = false,
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("everforest").setup({
-        background = "medium",
-      })
-      vim.cmd([[colorscheme everforest]])
-    end,
-  }
+	{
+		"neanias/everforest-nvim",
+		version = false,
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("everforest").setup({
+				background = "medium",
+			})
+			vim.cmd([[colorscheme everforest]])
+		end,
+	},
 }
-
 
 -- return {
 --     "nickkadutskyi/jb.nvim",
@@ -34,13 +33,12 @@ return {
 --     end,
 -- }
 
-
 -- return {
---   "EdenEast/nightfox.nvim",
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme carbonfox")
---   end,
+-- 	"EdenEast/nightfox.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd("colorscheme carbonfox")
+-- 	end,
 -- }
 
 -- return {
