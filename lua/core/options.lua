@@ -42,15 +42,20 @@ opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 
--- vim.api.nvim_create_autocmd("ColorScheme", {
--- 	callback = function()
--- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
---
--- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
--- 	end,
--- })
+opt.exrc = true
+opt.secure = true
+
+-- vim.cmd.colorscheme("jb")
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+
+		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+	end,
+})
 
 vim.diagnostic.config({
 	virtual_text = true,
@@ -78,14 +83,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
-vim.g.clipboard = {
-	name = "OSC 52",
-	copy = {
-		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-	},
-	paste = {
-		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-	},
-}
+-- vim.g.clipboard = {
+-- 	name = "OSC 52",
+-- 	copy = {
+-- 		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+-- 		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+-- 	},
+-- 	paste = {
+-- 		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+-- 		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+-- 	},
+-- }

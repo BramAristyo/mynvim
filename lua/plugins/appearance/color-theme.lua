@@ -23,14 +23,28 @@
 -- }
 
 return {
-	"nickkadutskyi/jb.nvim",
-	lazy = false,
-	priority = 1000,
-	opts = {},
-	config = function()
-		-- require("jb").setup({transparent = true})
-		vim.cmd("colorscheme jb")
-	end,
+	{
+		"neanias/everforest-nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("everforest").setup({
+				background = "medium",
+			})
+		end,
+	},
+
+	{
+		"nickkadutskyi/jb.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+	},
 }
 
 -- return {
