@@ -47,15 +47,15 @@ opt.secure = true
 
 -- vim.cmd.colorscheme("jb")
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = function()
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-
-		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-	end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	callback = function()
+-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+--
+-- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- 	end,
+-- })
 
 vim.diagnostic.config({
 	virtual_text = true,
