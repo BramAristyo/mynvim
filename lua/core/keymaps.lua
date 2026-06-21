@@ -65,3 +65,6 @@ map("n", "<leader>th", function()
 end, { desc = "Toggle LSP Inlay Hints" })
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", { desc = "Clear search highlight" })
+
+map("v", "<BS>", '"_d')
+map("v", "<Delete>", '"_d')
