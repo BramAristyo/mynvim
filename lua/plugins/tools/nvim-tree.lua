@@ -7,6 +7,7 @@ return {
 		require("nvim-tree").setup({
 			filters = {
 				dotfiles = false,
+				git_ignored = false,
 			},
 			view = {
 				width = "15%",
