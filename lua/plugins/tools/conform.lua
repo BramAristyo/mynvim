@@ -6,6 +6,7 @@ return {
       lua = { "stylua" },
       rust = { "rustfmt" },
       go = { "gofumpt", "goimports" },
+      proto = { "buf" },
       python = { "isort", "black" },
     },
     format_on_save = {

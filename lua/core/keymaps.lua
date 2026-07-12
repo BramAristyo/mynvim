@@ -35,9 +35,12 @@ end)
 map("n", "<C-/>", ":noh<CR>")
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
-map("n", "<leader>cd", vim.diagnostic.open_float)
+map("n", "<leader>cd", ":Telescope diagnostics<CR>")
 map("n", "<leader>gg", "<Cmd>LazyGit<CR>")
 map("n", "<leader>ca", vim.lsp.buf.code_action)
+
+map("n", "]d", vim.diagnostic.goto_next)
+map("n", "[d", vim.diagnostic.goto_prev)
 
 map("n", "gd", vim.lsp.buf.definition)
 map("n", "gr", vim.lsp.buf.references)
@@ -68,3 +71,32 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", { desc = "Clear search highlight" 
 
 map("v", "<BS>", '"_d')
 map("v", "<Delete>", '"_d')
+
+map("n", "<leader>db", function()
+	require("dap").toggle_breakpoint()
+end)
+map("n", "<leader>dc", function()
+	require("dap").continue()
+end)
+map("n", "<leader>do", function()
+	require("dap").step_over()
+end)
+map("n", "<leader>di", function()
+	require("dap").step_into()
+end)
+map("n", "<leader>du", function()
+	require("dapui").toggle()
+end)
+
+map("n", "<leader>c", function()
+	local diag = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+	if #diag > 0 then
+		vim.fn.setreg("+", diag[1].message)
+		print("Copied: " .. diag[1].message:sub(1, 60) .. (diag[1].message:len() > 60 and "..." or ""))
+	else
+		print("No diagnostic at cursor")
+	end
+end)
+
+map("v", "<", "<gv")
+map("v", ">", ">gv")

@@ -5,6 +5,9 @@ return {
       ensure_installed = {
         "isort",
         "black",
+        "gofumpt",
+        "goimports",
+        "buf",
       },
     })
   end,
