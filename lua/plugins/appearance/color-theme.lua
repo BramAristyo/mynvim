@@ -1,10 +1,10 @@
 -- return {
---   "vimcolorschemes/olive-crt.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd.colorscheme("olive-crt")
---   end,
+-- 	"vimcolorschemes/olive-crt.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd.colorscheme("olive-crt")
+-- 	end,
 -- }
 
 -- return {
@@ -22,33 +22,33 @@
 -- 	},
 -- }
 
-return {
-	{
-		"neanias/everforest-nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("everforest").setup({
-				background = "medium",
-			})
-		end,
-	},
-
-	{
-		"nickkadutskyi/jb.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("jb")
-		end,
-	},
-
-	{
-		"EdenEast/nightfox.nvim",
-		lazy = false,
-		priority = 1000,
-	},
-}
+-- return {
+-- 	{
+-- 		"neanias/everforest-nvim",
+-- 		lazy = false,
+-- 		priority = 1000,
+-- 		config = function()
+-- 			require("everforest").setup({
+-- 				background = "medium",
+-- 			})
+-- 		end,
+-- 	},
+--
+-- 	{
+-- 		"nickkadutskyi/jb.nvim",
+-- 		lazy = false,
+-- 		priority = 1000,
+-- 		config = function()
+-- 			vim.cmd.colorscheme("jb")
+-- 		end,
+-- 	},
+--
+-- 	{
+-- 		"EdenEast/nightfox.nvim",
+-- 		lazy = false,
+-- 		priority = 1000,
+-- 	},
+-- }
 
 -- return {
 -- 	"EdenEast/nightfox.nvim",
@@ -59,17 +59,39 @@ return {
 -- }
 
 -- return {
---   "rebelot/kanagawa.nvim",
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme kanagawa-wave")
---   end,
+-- 	"rebelot/kanagawa.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd("colorscheme kanagawa-wave")
+-- 	end,
 -- }
 
 -- return {
---   "folke/tokyonight.nvim",
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme tokyonight-night")
---   end,
+-- 	"sainnhe/sonokai",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		-- Optionally configure and load the colorscheme
+-- 		-- directly inside the plugin declaration.
+-- 		vim.g.sonokai_enable_italic = true
+-- 		vim.cmd.colorscheme("sonokai")
+-- 	end,
+-- }
+
+return {
+	"bluz71/vim-moonfly-colors",
+	name = "moonfly",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd.colorscheme("moonfly")
+	end,
+}
+--
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd("colorscheme tokyonight-night")
+-- 	end,
 -- }

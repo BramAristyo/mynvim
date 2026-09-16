@@ -10,8 +10,8 @@ return {
 				git_ignored = false,
 			},
 			view = {
-				width = "15%",
-				-- side = "right",
+				width = "20%",
+				side = "right",
 			},
 			sync_root_with_cwd = true,
 			respect_buf_cwd = true,

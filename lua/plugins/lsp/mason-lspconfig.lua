@@ -5,7 +5,6 @@ return {
   config = function()
     require("mason-lspconfig").setup{
       ensure_installed = { "lua_ls", "gopls", "intelephense", "rust_analyzer", "pyright" },
-      automatic_installation = true,
     }
   end,
 }

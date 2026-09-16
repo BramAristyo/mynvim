@@ -73,3 +73,20 @@ vim.diagnostic.config({
 -- 		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
 -- 	},
 -- }
+
+-- Preserve scroll position when switching buffers
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+	callback = function()
+		if vim.bo.buftype == "" and vim.fn.expand("%") ~= "" then
+			vim.cmd("silent! mkview")
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	callback = function()
+		if vim.bo.buftype == "" and vim.fn.expand("%") ~= "" then
+			pcall(vim.cmd, "silent! loadview")
+		end
+	end,
+})
